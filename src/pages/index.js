@@ -5,7 +5,7 @@ const index = () => {
   return (
     <>
       <Layout>
-        <h1>Gatsby Hotel</h1>
+        <h1>Inicio</h1>
       </Layout>
     </>
   )

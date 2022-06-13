@@ -43,19 +43,25 @@ const RoomTemplate = ({
   const { titulo, contenido, imagen } = nodes[0]
   return (
     <Layout>
-      <h2
+      <div
         css={css`
-          text-align: center;
-          font-size: 4rem;
-          margin-top: 4rem;
+          min-height: 62.5vh;
         `}
       >
-        {titulo}
-      </h2>
-      <IndexText>
-        <p>{contenido}</p>
-        <GatsbyImage image={imagen.gatsbyImageData} alt="Habitacion" />
-      </IndexText>
+        <h2
+          css={css`
+            text-align: center;
+            font-size: 4rem;
+            margin-top: 4rem;
+          `}
+        >
+          {titulo}
+        </h2>
+        <IndexText>
+          <p>{contenido}</p>
+          <GatsbyImage image={imagen.gatsbyImageData} alt="Habitacion" />
+        </IndexText>
+      </div>
     </Layout>
   )
 }

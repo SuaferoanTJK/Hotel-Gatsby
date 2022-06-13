@@ -1,7 +1,7 @@
 {
   "name": "hotel-gatsby",
   "private": true,
-  "description": "Developing with Gatsby",
+  "description": "Developing hotel page with Gatsby",
   "version": "1.0.0",
   "author": "Andrés Suárez",
   "dependencies": {

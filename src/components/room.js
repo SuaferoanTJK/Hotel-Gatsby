@@ -1,8 +1,24 @@
 import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import styled from "@emotion/styled"
 import { css } from "@emotion/react"
+
+import Layout from "./layout"
+
+export const query = graphql`
+  query ($slug: String!) {
+    allDatoCmsRoom(filter: { slug: { eq: $slug } }) {
+      nodes {
+        titulo
+        contenido
+        imagen {
+          gatsbyImageData
+        }
+      }
+    }
+  }
+`
 
 const IndexText = styled.div`
   padding-top: 4rem;
@@ -19,23 +35,14 @@ const IndexText = styled.div`
   }
 `
 
-const UsContent = () => {
-  const info = useStaticQuery(graphql`
-    query {
-      allDatoCmsPage(filter: { slug: { eq: "nosotros" } }) {
-        nodes {
-          titulo
-          contenido
-          imagen {
-            gatsbyImageData
-          }
-        }
-      }
-    }
-  `)
-  const { titulo, contenido, imagen } = info.allDatoCmsPage.nodes[0]
+const RoomTemplate = ({
+  data: {
+    allDatoCmsRoom: { nodes },
+  },
+}) => {
+  const { titulo, contenido, imagen } = nodes[0]
   return (
-    <>
+    <Layout>
       <h2
         css={css`
           text-align: center;
@@ -47,10 +54,10 @@ const UsContent = () => {
       </h2>
       <IndexText>
         <p>{contenido}</p>
-        <GatsbyImage image={imagen.gatsbyImageData} alt="nosotros" />
+        <GatsbyImage image={imagen.gatsbyImageData} alt="Habitacion" />
       </IndexText>
-    </>
+    </Layout>
   )
 }
 
-export default UsContent
+export default RoomTemplate

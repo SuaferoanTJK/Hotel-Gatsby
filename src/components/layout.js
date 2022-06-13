@@ -14,6 +14,7 @@ const Layout = ({ children }) => {
           body {
             font-size: 1.6rem;
             line-height: 1.5;
+            font-family: "PT Sans", sans-serif;
           }
           h1,
           h2,

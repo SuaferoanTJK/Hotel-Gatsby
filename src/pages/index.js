@@ -1,11 +1,12 @@
 import React from "react"
 import Layout from "../components/layout"
+import HotelImage from "../components/hotelImage"
 
 const index = () => {
   return (
     <>
       <Layout>
-        <h1>Inicio</h1>
+        <HotelImage />
       </Layout>
     </>
   )

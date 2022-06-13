@@ -4,8 +4,13 @@ import { Global, css } from "@emotion/react"
 
 import Header from "./header"
 import Footer from "./footer"
+import useSEO from "../hooks/useSEO"
 
 const Layout = ({ children }) => {
+  const seo = useSEO()
+  const {
+    fallbackSeo: { description, title },
+  } = seo
   return (
     <>
       <Global
@@ -45,7 +50,8 @@ const Layout = ({ children }) => {
         `}
       />
       <Helmet>
-        <title>Gatsby Hotel</title>
+        <title>{title}</title>
+        <meta name="description" content={description} />
         <link
           href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
           rel="stylesheet"
@@ -57,7 +63,7 @@ const Layout = ({ children }) => {
       </Helmet>
       <Header />
       {children}
-      <Footer />
+      <Footer title={title} />
     </>
   )
 }
